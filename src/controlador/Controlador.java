@@ -83,12 +83,15 @@ public class Controlador {
 				leerDesdeFicheroJSON(modelo, vista);
 				break;
 			case 11:
+				//Mostrar todos los alumnos del un grupo
 				
 				break;
 			case 12:
+				//Cambiar el grupo de un alumno
 				
 				break;
 			case 13:
+				//Guardar el grupo seleccionado dentro de un fichero JSON
 				
 				break;
 			case 0:
