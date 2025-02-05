@@ -82,13 +82,23 @@ public class Controlador {
 				// Leer los grupos desde un fichero JSON y guardarlos en la base de datos
 				leerDesdeFicheroJSON(modelo, vista);
 				break;
+			case 11:
+				
+				break;
+			case 12:
+				
+				break;
+			case 13:
+				
+				break;
 			case 0:
 				// Salir del programa
 				vista.mostrarMensaje("Saliendo del programa...");
 				break;
 			default:
 				// Introducción de un número no válido
-				System.err.println("El número introducido no se corresponde con una instrucción válida");
+				vista.mostrarMensaje("El número introducido no se corresponde con una instrucción válida");
+				Logger.info("El número introducido no se corresponde con una instrucción válida");
 			}
 		} while (opcion != 0);
 	}
