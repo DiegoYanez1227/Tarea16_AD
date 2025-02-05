@@ -98,7 +98,7 @@ public class Controlador {
 			default:
 				// Introducción de un número no válido
 				vista.mostrarMensaje("El número introducido no se corresponde con una instrucción válida");
-				Logger.info("El número introducido no se corresponde con una instrucción válida");
+				Logger.error("El número introducido no se corresponde con una instrucción válida");
 			}
 		} while (opcion != 0);
 	}
