@@ -24,16 +24,6 @@ public class VistaConsola implements IVista{
 	}
 
 
-	/*
-
-	 * Guardar todos los grupos (con toda su información como
-		atributos) en un fichero XML o JSON. Para cada grupo se
-		guardará también el listado de alumnos de ese grupo. Los datos
-		del alumno serán atributos en el XML.
-	 * Leer un fichero XML o JSON de grupos (con en formato anterior)
-		y guardarlos en la BD
-	 */
-
 	public int menu() {
 		System.out.println("SISTEMA DE GESTION DE ALUMNOS");
 		System.out.println("===============================");
@@ -42,13 +32,16 @@ public class VistaConsola implements IVista{
 		System.out.println("1. Insertar un nuevo alumno");
 		System.out.println("2. Insertar un nuevo grupo");
 		System.out.println("3. Mostrar todos los alumnos (en consola)");
-		System.out.println("4. Guardar todos los alumnos en un fichero");
-		System.out.println("5. Leer alumnos de un fichero y guardarlos en la base de datos");
+		System.out.println("4. Guardar todos los alumnos en un fichero TXT");
+		System.out.println("5. Leer alumnos de un fichero TXT y guardarlos en la base de datos");
 		System.out.println("6. Modificar el nombre de un alumno (usando su PK)");
 		System.out.println("7. Eliminar un alumno (usando su PK)");
 		System.out.println("8. Eliminar alumnos por curso");
 		System.out.println("9. Guardar todos los grupos en un fichero JSON");
 		System.out.println("10. Leer un fichero JSON de alumnos y guardarlos en la base de datos");
+		System.out.println("11. Mostrar todos los alumnos de un grupo");
+		System.out.println("12. Cambiar el grupo a un alumno");
+		System.out.println("13. Guardar el grupo seleccionado en un fichero JSON");
 		System.out.print("\nOpción:");
 
 		System.out.println("Introduce una opcion");
