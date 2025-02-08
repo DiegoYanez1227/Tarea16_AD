@@ -29,6 +29,21 @@ public class FicheroJSON {
         }
         return RUTA_JSON;
     }
+	
+	/**
+     * Método para guardar una lista de grupos en un archivo JSON.
+     * @param Lista de grupos leída del JSON
+     * @return Ruta del archivo JSON
+     */
+	public String generarFichero1Grupo(Grupo grupo) {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (FileWriter writer = new FileWriter(RUTA_JSON)) {
+            gson.toJson(grupo, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return RUTA_JSON;
+    }
 	 /**
      * Método para leer un archivo JSON y convertirlo en una lista de grupos.
      * @param ruta Ruta del archivo JSON

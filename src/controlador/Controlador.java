@@ -92,7 +92,7 @@ public class Controlador {
 				break;
 			case 13:
 				//Guardar el grupo seleccionado dentro de un fichero JSON
-				
+				guardar1GrupoEnJSON(vista);
 				break;
 			case 0:
 				// Salir del programa
@@ -106,10 +106,6 @@ public class Controlador {
 		} while (opcion != 0);
 	}
 
-	
-	
-
-	
 
 
 	/**
@@ -299,5 +295,12 @@ public class Controlador {
 		modelo.modificarGrupoDeAlumno(nia, grupo);
 		Logger.info("Se ha modificado el grupo del alumno con nia "+nia);
 	}
+	
+	private void guardar1GrupoEnJSON(IVista vista) {
+		Grupo grupo= vista.pedirGrupo();
+		ficheroJSON.generarFichero1Grupo(grupo);
+		Logger.error("Se ha escrito correctamente el fichero JSON");
+	}
+
 
 }
