@@ -142,7 +142,28 @@ public class AlumnoBD implements AlumnoDAO{
 		return filasActualizadas;
 	}
 
+	@Override
+	public int modificarGrupoDeAlumno(int nia, Grupo grupo) {
+		Alumno alumno=obtenerAlumnoPorNIA(nia);
+		// Actualizar los datos en la base de datos
+		String sql = "UPDATE alumnos SET grupo = ? WHERE nia = ?";
 
+		int filasActualizadas=0;
+		try(Connection conexion = MyDataSource.getConnection();
+				PreparedStatement sentencia = conexion.prepareStatement(sql);
+				ResultSet rs = sentencia.executeQuery()){
+
+			sentencia.setInt(1, grupo.getId_grupo());
+			sentencia.setInt(2, nia);
+
+			return filasActualizadas= sentencia.executeUpdate();
+
+		} catch (SQLException e) {
+			Logger.error("Error en la modificacion del nombre del alumno con nia "+nia);
+			e.printStackTrace();
+		}
+		return filasActualizadas;
+	}
 
 	@Override
 	public void eliminarPorNia(int nia) {
@@ -242,6 +263,34 @@ public class AlumnoBD implements AlumnoDAO{
 			return null;
 		}
 		return alumno;
+
+	}
+	
+	@Override
+	public List<Alumno> obtenerAlumnosPorGrupo(Grupo grupo) {
+		String sql = "SELECT nia, nombre, apellidos, fecha_nacimiento, genero, ciclo, curso, grupo FROM alumno WHERE grupo= ?";
+
+		List <Alumno> alumnos = null;
+
+		try(Connection conexion = MyDataSource.getConnection();
+				PreparedStatement sentencia = conexion.prepareStatement(sql);
+				ResultSet rs = sentencia.executeQuery()){
+			
+			alumnos= new ArrayList<Alumno>();
+			Alumno alumno;
+			
+			sentencia.setInt(1, grupo.getId_grupo());
+			
+			while (rs.next()) {
+					alumno = new Alumno();
+					generarAlumno(rs, alumno);
+				}
+			
+		}catch(SQLException e) {
+			Logger.error("Error al obtener los alumnos de un grupo");
+			return null;
+		}
+		return alumnos;
 
 	}
 

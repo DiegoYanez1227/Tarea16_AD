@@ -84,11 +84,11 @@ public class Controlador {
 				break;
 			case 11:
 				//Mostrar todos los alumnos del un grupo
-				
+				mostrarAlumnosDeUnGrupo(modelo, vista);
 				break;
 			case 12:
 				//Cambiar el grupo de un alumno
-				
+				modificarGrupoDeAlumno(modelo, vista);
 				break;
 			case 13:
 				//Guardar el grupo seleccionado dentro de un fichero JSON
@@ -105,6 +105,9 @@ public class Controlador {
 			}
 		} while (opcion != 0);
 	}
+
+	
+	
 
 	
 
@@ -280,4 +283,21 @@ public class Controlador {
 			
 		}
 	}
+	
+	private void mostrarAlumnosDeUnGrupo(AlumnoDAO modelo, IVista vista) {
+		Grupo grupo=vista.pedirGrupo();
+		List<Alumno> alumnos= modelo.obtenerAlumnosPorGrupo(grupo);
+		vista.mostrarAlumnos(alumnos);
+	}
+	
+	private void modificarGrupoDeAlumno(AlumnoDAO modelo, IVista vista) {
+		int nia = vista.pedirNia();
+		Alumno alumnoUpdate = modelo.obtenerAlumnoPorNIA(nia);
+		vista.mostrarMensaje("Aquí está el alumno con NIA " + nia + " del que quieres cambiar el nombre.");
+		vista.mostrarAlumno(alumnoUpdate);
+		Grupo grupo = vista.pedirGrupo();
+		modelo.modificarGrupoDeAlumno(nia, grupo);
+		Logger.info("Se ha modificado el grupo del alumno con nia "+nia);
+	}
+
 }

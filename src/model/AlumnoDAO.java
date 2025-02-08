@@ -61,8 +61,11 @@ public interface AlumnoDAO {
      * @param nia El NIA del alumno.
      * @return El alumno correspondiente al NIA.
      */
-    Alumno obtenerAlumnoPorNIA(int nia); // Get
+    Alumno obtenerAlumnoPorNIA(int nia);
 
+    
+    List<Alumno> obtenerAlumnosPorGrupo(Grupo grupo);
+    
     /**
      * Modifica el nombre de un alumno según su NIA.
      * 
@@ -72,6 +75,8 @@ public interface AlumnoDAO {
      */
     int modificarNombrePorNia(int nia, String nombre); // Update
 
+    
+    int modificarGrupoDeAlumno(int nia, Grupo grupo);
     /**
      * Elimina un alumno de la base de datos mediante su NIA.
      * 

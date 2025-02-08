@@ -21,18 +21,6 @@ public interface IVista {
 	int menu();
 
 	/**
-	 * Solicita los datos de un alumno al usuario.
-	 * @return Un objeto {@link Alumno} con los datos introducidos por el usuario.
-	 */
-	Alumno pedirAlumno();
-
-	/**
-	 * Solicita los datos de un grupo al usuario.
-	 * @return Un objeto {@link Grupo} con los datos introducidos por el usuario.
-	 */
-	Grupo pedirGrupo();
-
-	/**
 	 * Muestra los datos de un alumno.
 	 * @param alumno El objeto {@link Alumno} cuyos datos se deben mostrar.
 	 */
@@ -75,6 +63,18 @@ public interface IVista {
 	void mostrarMensaje(String mensaje);
 
 	/**
+	 * Solicita los datos de un alumno al usuario.
+	 * @return Un objeto {@link Alumno} con los datos introducidos por el usuario.
+	 */
+	Alumno pedirAlumno();
+
+	/**
+	 * Solicita los datos de un grupo al usuario.
+	 * @return Un objeto {@link Grupo} con los datos introducidos por el usuario.
+	 */
+	Grupo pedirGrupo();
+	
+	/**
 	 * Solicita al usuario la ruta de un archivo.
 	 * @return La ruta del archivo introducida por el usuario.
 	 */
@@ -98,6 +98,7 @@ public interface IVista {
 	 */
 	String pedirCurso();
 
+	
 	/**
 	 * Solicita al usuario una confirmación.
 	 * @return `true` si el usuario confirma, `false` si lo rechaza.
